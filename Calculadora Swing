@@ -1,0 +1,291 @@
+package QualquerProjeto2;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CalculadoraBruno {
+
+	private JFrame frmBrunoHenriqueOliveira;
+	private JTextField JTFResultado;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CalculadoraBruno window = new CalculadoraBruno();
+					window.frmBrunoHenriqueOliveira.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CalculadoraBruno() {
+		initialize();
+	}
+	
+	double valor1,valor2,valor3,valor4,valor5,valor6,valor7,valor8,valor9;
+	double resultadoAcumulado;
+	String op;
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmBrunoHenriqueOliveira = new JFrame();
+		frmBrunoHenriqueOliveira.setTitle("Bruno Henrique Oliveira Araújo - RA0024913");
+		frmBrunoHenriqueOliveira.getContentPane().setBackground(new Color(192, 192, 192));
+		frmBrunoHenriqueOliveira.getContentPane().setLayout(null);
+		
+		JTFResultado = new JTextField();
+		JTFResultado.setFont(new Font("Arial Black", Font.PLAIN, 80));
+		JTFResultado.setBounds(10, 30, 439, 73);
+		frmBrunoHenriqueOliveira.getContentPane().add(JTFResultado);
+		JTFResultado.setColumns(10);
+		
+		JButton btnNewButton = new JButton("0");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("0");
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton.setBounds(104, 427, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("1");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JTFResultado.setText("1");
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_1.setBounds(10, 341, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_3 = new JButton("2");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("2");
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_3.setBounds(104, 341, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("3");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("3");
+			}
+		});
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_4.setBounds(201, 341, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_4);
+		
+		JButton btnNewButton_3_1 = new JButton("8");
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("8");
+			}
+		});
+		btnNewButton_3_1.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_3_1.setBounds(104, 193, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_3_1);
+		
+		JButton btnNewButton_1_1 = new JButton("7");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("7");
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_1_1.setBounds(10, 193, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_1_1);
+		
+		JButton btnNewButton_4_1 = new JButton("9");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("9");
+			}
+		});
+		btnNewButton_4_1.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_4_1.setBounds(201, 193, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_4_1);
+		
+		JButton btnNewButton_3_2 = new JButton("5");
+		btnNewButton_3_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("5");
+			}
+		});
+		btnNewButton_3_2.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_3_2.setBounds(104, 268, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_3_2);
+		
+		JButton btnNewButton_1_2 = new JButton("4");
+		btnNewButton_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JTFResultado.setText("4");
+			}
+		});
+		btnNewButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_1_2.setBounds(10, 268, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_1_2);
+		
+		JButton btnNewButton_4_2 = new JButton("6");
+		btnNewButton_4_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("6");
+			}
+		});
+		btnNewButton_4_2.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnNewButton_4_2.setBounds(201, 268, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnNewButton_4_2);
+		
+		JButton btnC = new JButton("c");
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTFResultado.setText("0");
+			}
+		});
+		btnC.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnC.setBounds(10, 114, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnC);
+		
+		JButton btnSoma = new JButton("+");
+		btnSoma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			valor1 = Double.parseDouble(JTFResultado.getText());
+				resultadoAcumulado += Double.parseDouble(JTFResultado.getText());
+				JTFResultado.setText("");
+				op = "soma";
+							
+			}
+		});
+		btnSoma.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnSoma.setBounds(364, 341, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnSoma);
+		
+		JButton btnMultiplicacao = new JButton("*");
+		btnMultiplicacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				valor1 = Double.parseDouble(JTFResultado.getText());
+				JTFResultado.setText("");
+				op = "multiplicacao";
+			}
+		});
+		btnMultiplicacao.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnMultiplicacao.setBounds(364, 193, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnMultiplicacao);
+		
+		JButton btnDivisao = new JButton("/");
+		btnDivisao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				valor1 = Double.parseDouble(JTFResultado.getText());
+				JTFResultado.setText("");
+				op = "divisao";
+			}
+		});
+		btnDivisao.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnDivisao.setBounds(364, 114, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnDivisao);
+		
+		JButton btnSubtracao = new JButton("-");
+		btnSubtracao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				valor1 = Double.parseDouble(JTFResultado.getText());
+				JTFResultado.setText("");
+				op = "subtracao";
+			}
+		});
+		btnSubtracao.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnSubtracao.setBounds(364, 268, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnSubtracao);
+		
+		JButton btnIgual = new JButton("=");
+		btnIgual.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+
+		        if (!JTFResultado.getText().isEmpty() || "raiz".equals(op)) {
+
+		            if (!"raiz".equals(op)) {
+		                valor2 = Double.parseDouble(JTFResultado.getText());
+		            }
+
+		            if ("soma".equals(op)) {
+		                resultadoAcumulado += valor2;
+		                JTFResultado.setText(String.valueOf(resultadoAcumulado));
+		            }
+
+		            if ("subtracao".equals(op)) {
+		                JTFResultado.setText(String.valueOf(valor1 - valor2));
+		            }
+
+		            if ("multiplicacao".equals(op)) {
+		                JTFResultado.setText(String.valueOf(valor1 * valor2));
+		            }
+
+		            if ("divisao".equals(op)) {
+		                if (valor2 != 0) {
+		                    JTFResultado.setText(String.valueOf(valor1 / valor2));
+		                } else {
+		                    JTFResultado.setText("Erro");
+		                }
+		            }
+
+		            if ("potencia".equals(op)) {
+		                JTFResultado.setText(String.valueOf(Math.pow(valor1, valor2)));
+		            }
+
+		            if ("raiz".equals(op)) {
+		                JTFResultado.setText(String.valueOf(Math.sqrt(valor1)));
+		            }
+
+		        }
+		    }
+		});
+		btnIgual.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnIgual.setBounds(364, 437, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnIgual);
+		
+		JButton btnPonto = new JButton(",");
+		btnPonto.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnPonto.setBounds(255, 437, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnPonto);
+		
+		JButton btnPotencia = new JButton("^");
+		btnPotencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valor1 = Double.parseDouble(JTFResultado.getText());
+				JTFResultado.setText("");
+				op = "potencia";
+				
+			}
+		});
+		btnPotencia.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		btnPotencia.setBounds(255, 114, 72, 64);
+		frmBrunoHenriqueOliveira.getContentPane().add(btnPotencia);
+		frmBrunoHenriqueOliveira.setBackground(new Color(192, 192, 192));
+		frmBrunoHenriqueOliveira.setBounds(100, 100, 475, 565);
+		frmBrunoHenriqueOliveira.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
